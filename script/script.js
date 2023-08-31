@@ -30,13 +30,13 @@ const categoryHandleClick = async (id) => {
     if (status === true) {
       displayVideos(videos);
     } else {
-      console.log("Status False");
+      window.location.href = "404.html";
     }
   } catch {}
 };
 
 const displayVideos = (videos) => {
-  console.log(videos);
+  // console.log(videos);
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   videos.forEach((video) => {
@@ -61,17 +61,26 @@ const displayVideos = (videos) => {
               <div class="px-20">
                 <div class="flex gap-2">
                   <h6>${video.authors[0].profile_name}</h6>
-                  <img class="hidden" src="./img/fi_10629607.svg" alt="varified">
+                  <img id="badge" class="hidden" src="./img/fi_10629607.svg" alt="varified">
                 </div>
                 <small>${video.others.views}</small>
               </div>
             </div>
           </div>
         </div>
-    
     `;
     cardContainer.appendChild(div);
+    const badgeTick = video.authors[0].verified;
+    const badgeTickContainer = document.getElementById("badge");
+    if (badgeTick === true) {
+      badgeTickContainer.classList.remove("hidden");
+    } else {
+      badgeTickContainer.classList.add("hidden");
+      console.log(badgeTick);
+    }
   });
 };
+
+// const badgeVarifyTick = () => {};
 
 loadHandlerCategory();
