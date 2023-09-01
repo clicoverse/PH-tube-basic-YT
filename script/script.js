@@ -41,6 +41,7 @@ const displayVideos = (videos) => {
   cardContainer.innerHTML = "";
   videos.forEach((video) => {
     const timeAgo = calculateTimeAgo(video.others?.posted_date);
+
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl">
@@ -82,15 +83,30 @@ const displayVideos = (videos) => {
 loadHandlerCategory();
 
 function calculateTimeAgo(postDateInSecond) {
-  const currentDateTime = new Date().getTime();
-  const postTime = parseInt(postDateInSecond) * 1000;
-  const timeDifference = currentDateTime - postTime;
-  const hoursAgo = Math.floor(timeDifference / (60 * 60 * 1000));
-  console.log(currentDateTime);
-  console.log(postTime);
-  console.log(timeDifference);
+  // const currentDateTime = new Date().getTime() / 1000;
+  const postTime = parseInt(postDateInSecond);
+  const hoursAgo = Math.floor(postTime / (60 * 60));
+  const minutesAgo = Math.floor((postTime % 3600) / 60);
+  // console.log(postDateInSecond);
+  // console.log(postTime);
   console.log(hoursAgo);
-  return `${hoursAgo}`;
+  console.log(minutesAgo);
+
+  const hoursText =
+    hoursAgo > 0 ? `${hoursAgo} ${hoursAgo === 1 ? "hour" : "hours"}` : "";
+  const minutesText =
+    minutesAgo > 0
+      ? `${minutesAgo} ${minutesAgo === 1 ? "minute" : "minutes"}`
+      : "";
+
+  if (hoursText && minutesText) {
+    return `${hoursText} and ${minutesText} ago`;
+  } else if (hoursText) {
+    return `${hoursText} ago`;
+  } else if (minutesText) {
+    return `${minutesText} ago`;
+  } else {
+    return "";
+  }
 }
 // console.log(calculateTimeAgo());
-// const badgeVarifyTick = () => {};
