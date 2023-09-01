@@ -40,11 +40,13 @@ const displayVideos = (videos) => {
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
   videos.forEach((video) => {
+    const timeAgo = calculateTimeAgo(video.others?.posted_date);
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl">
-          <figure>
-            <img class="w-full h-44" src=${video.thumbnail} alt="Shoes" />
+          <figure class="relative">
+            <img class="w-full h-44" src=${video.thumbnail} alt="videos" />
+            <div class="badge badge-neutral absolute font-semibold bottom-1 right-2">${timeAgo}</div>
           </figure>
           <div>
             <div class="card-body flex justify-between">
@@ -58,10 +60,14 @@ const displayVideos = (videos) => {
                 <h2 class="card-title">
                   ${video.title}</h2>
               </div>
-              <div class="px-20">
-                <div class="flex gap-2">
+              <div class="pl-20">
+                <div class="flex justify-stretch gap-2">
                   <h6>${video.authors[0].profile_name}</h6>
-                  <img id="badge" class="hidden" src="./img/fi_10629607.svg" alt="varified">
+                  ${
+                    video.authors[0].verified
+                      ? '<img class="badge" src="./img/fi_10629607.svg" alt="verified">'
+                      : ""
+                  }
                 </div>
                 <small>${video.others.views}</small>
               </div>
@@ -70,17 +76,21 @@ const displayVideos = (videos) => {
         </div>
     `;
     cardContainer.appendChild(div);
-    const badgeTick = video.authors[0].verified;
-    const badgeTickContainer = document.getElementById("badge");
-    if (badgeTick === true) {
-      badgeTickContainer.classList.remove("hidden");
-    } else {
-      badgeTickContainer.classList.add("hidden");
-      console.log(badgeTick);
-    }
   });
 };
 
-// const badgeVarifyTick = () => {};
-
 loadHandlerCategory();
+
+function calculateTimeAgo(postDateInSecond) {
+  const currentDateTime = new Date().getTime();
+  const postTime = parseInt(postDateInSecond) * 1000;
+  const timeDifference = currentDateTime - postTime;
+  const hoursAgo = Math.floor(timeDifference / (60 * 60 * 1000));
+  console.log(currentDateTime);
+  console.log(postTime);
+  console.log(timeDifference);
+  console.log(hoursAgo);
+  return `${hoursAgo}`;
+}
+// console.log(calculateTimeAgo());
+// const badgeVarifyTick = () => {};

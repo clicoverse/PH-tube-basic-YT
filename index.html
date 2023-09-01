@@ -33,7 +33,7 @@
                 </ul>
               </li>
               <li><a>Item 3</a></li> -->
-              <a class="btn bg-[#25252533] px-8">Sort by view</a>
+              <a id="sort-by-view-button" class="btn bg-[#25252533] px-8">Sort by view</a>
             </ul>
           </div>
           <a href="./index.html">
@@ -57,7 +57,7 @@
           </ul> -->
         </div>
         <div class="navbar-end">
-          <a class="btn bg-[#FF1F3D] text-white px-8">Blog</a>
+          <a class="btn bg-[#FF1F3D] text-white px-8" href="./blog.html">Blog</a>
         </div>
       </div>
     </nav>
@@ -66,7 +66,7 @@
   <main>
     <!-- Tab Container Starts Here -->
     <section>
-      <div id="categories-container" class="tabs mt-5 justify-center space-x-5">
+      <div id="categories-container" class="tabs mt-5 justify-center space-x-5 space-y-3">
         <!-- <a  class="tab bg-[#25252533] px-8 font-semibold text-black text-xl rounded-md">Tab 1</a>
         <a class="tab bg-[#25252533] px-8 font-semibold text-black text-xl rounded-md">Tab 2</a>
         <a class="tab bg-[#25252533] px-8 font-semibold text-black text-xl rounded-md">Tab 3</a> -->
@@ -75,11 +75,12 @@
 
     <!-- Tab Container Ends here -->
 
-    <section class="max-w-screen-2xl mx-auto lg:px-10 ">
-      <div id="card-container" class="grid grid-cols-4 gap-4 mt-10">
+    <section class="max-w-screen-2xl mx-auto sm:px-5 lg:px-10 ">
+      <div id="card-container" class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-10">
         <!-- <div class="card w-96 bg-base-100 shadow-xl">
-          <figure>
-            <img src="https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png" alt="Shoes" />
+          <figure class="relative">
+            <img src="https://i.ibb.co/M23fhxm/unsplash-Eh-Tc-C9s-YXsw.png" alt="videos" />
+            <div class="badge badge-neutral absolute font-semibold bottom-1 right-2">date and time</div>
           </figure>
           <div>
             <div class="card-body flex justify-between">

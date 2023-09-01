@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Tailwind and daisyUI inserted here -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@3.6.4/dist/full.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Blog Page</title>
+</head>
+
+<body>
+  <header>
+    <!-- Navbar starts here -->
+    <nav class="max-w-screen-2xl mx-auto lg:px-10 border-b-2">
+      <div class="navbar bg-base-100">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <label tabindex="0" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </label>
+            <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+              <!-- <li><a>Item 1</a></li>
+              <li>
+                <a>Parent</a>
+                <ul class="p-2">
+                  <li><a>Submenu 1</a></li>
+                  <li><a>Submenu 2</a></li>
+                </ul>
+              </li>
+              <li><a>Item 3</a></li> -->
+              <a class="btn bg-[#25252533] px-8">Sort by view</a>
+            </ul>
+          </div>
+          <a href="./index.html">
+            <img src="./img/Logo.png" alt="Logo">
+          </a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <a class="btn bg-[#25252533] px-8">Sort by view</a>
+          <!-- <ul class="menu menu-horizontal px-1">
+            <li><a>Item 1</a></li>
+            <li tabindex="0">
+              <details>
+                <summary>Parent</summary>
+                <ul class="p-2">
+                  <li><a>Submenu 1</a></li>
+                  <li><a>Submenu 2</a></li>
+                </ul>
+              </details>
+            </li>
+            <li><a>Item 3</a></li>
+          </ul> -->
+        </div>
+        <div class="navbar-end">
+          <a class="btn bg-[#FF1F3D] text-white px-8">Blog</a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar Ends here -->
+  </header>
+  <main>
+    <section>
+      <section class="text-gray-600 body-font">
+        <div class="container px-5 py-24 mx-auto">
+          <h1 class="sm:text-3xl text-5xl font-bold title-font text-center text-gray-900 mb-20">Blog Questions
+            <br class="hidden sm:block">
+          </h1>
+          <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4 md:space-y-0 space-y-6">
+            <div class="p-4  flex">
+              <div
+                class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-[#FF1F3D] text-white mb-4 flex-shrink-0">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="w-6 h-6" viewBox="0 0 24 24">
+                  <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                </svg>
+              </div>
+              <div class="flex-grow pl-6">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Discuss the scope of var, let, and const
+                </h2>
+                <p class="leading-relaxed text-base">In JavaScript, there are three different ways to declare variables.
+                  These variables are used to define a variable name that store data or value. <br>
+                  'var' variable is a function scoped as well as global scoped variable. 'var' variables can be
+                  re-decleared and updated within their scope. For this reason it causes variable collisions. After ES6,
+                  for these reason 'var' variable is stoped using. <br>
+                  'let' variable is a block scoped variable, means their scope is limited to the block; like function,
+                  loop, conditions etc. this variables can be updated but not reassign within the same scope. <br>
+                  'const'varibale also a blcok scoped variable, it can't be reassign or changed after assignment. Thus
+                  this vairable is used for those values that are not meant to be modified. </p>
+                <!-- Blog 1 ends here -->
+              </div>
+            </div>
+            <div class="p-4  flex">
+              <div
+                class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-[#FF1F3D] text-white mb-4 flex-shrink-0">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="w-6 h-6" viewBox="0 0 24 24">
+                  <circle cx="6" cy="6" r="3"></circle>
+                  <circle cx="6" cy="18" r="3"></circle>
+                  <path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"></path>
+                </svg>
+              </div>
+              <div class="flex-grow pl-6">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-2">Tell us the use cases of null and
+                  undefined</h2>
+                <p class="leading-relaxed text-base">In JavaScript, 'null' & 'undifined' respresent the absence of a
+                  meaningful value. <br>
+                  'null' is intentionally used to indicate the absence of value. By comparing a variable using 'null',
+                  when we use equality operator (==) it will yield 'ture' value, where as if we are stirck equality
+                  operator (===) it will yield 'false'. <br> On the other hand 'undifined' occurs when a variable has
+                  declared but not assigned value. By comparing a variable using 'undefined', in both the cases of
+                  equality operator (==) as well as (===) strick equality operator it will yield 'true' value. </p>
+                <!-- blog 2 ends here -->
+              </div>
+            </div>
+            <div class="p-4  flex">
+              <div
+                class="w-12 h-12 inline-flex items-center justify-center rounded-full bg-[#FF1F3D] text-white mb-4 flex-shrink-0">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  class="w-6 h-6" viewBox="0 0 24 24">
+                  <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"></path>
+                  <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+              </div>
+              <div class="flex-grow pl-6">
+                <h2 class="text-gray-900 text-lg title-font font-medium mb-2">What do you mean by REST API?</h2>
+                <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                  taxidermy. Gastropub indxgo juice poutine, ramps microdosing banh mi pug VHS try-hard ugh iceland
+                  kickstarter tumblr live-edge tilde.</p>
+                <!-- Blog 3 Ends here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+<script src="./script/script.js"></script>
+
+</html>
