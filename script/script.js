@@ -19,6 +19,17 @@ const displayCategories = (categories) => {
   });
 };
 
+const defaultLoad = async () => {
+  const response = await fetch(
+    `https://openapi.programming-hero.com/api/videos/category/1000`
+  );
+  const defaultVideoData = await response.json();
+  const defaultVideos = defaultVideoData.data;
+  displayVideos(defaultVideos);
+  // console.log(defaultVideos);
+};
+defaultLoad();
+
 const categoryHandleClick = async (id) => {
   try {
     const videofatched = await fetch(
@@ -27,27 +38,31 @@ const categoryHandleClick = async (id) => {
     const videoData = await videofatched.json();
     const videos = videoData.data;
     const status = videoData.status;
+
     if (status === true) {
       displayVideos(videos);
     } else {
       window.location.href = "404.html";
     }
-  } catch {}
+  } catch {
+    console.error("Error fetching videos:", error);
+  }
 };
 
 const displayVideos = (videos) => {
-  // console.log(videos);
   const cardContainer = document.getElementById("card-container");
   cardContainer.innerHTML = "";
+  // console.log("sorted ", sortedVideos);
+
   videos.forEach((video) => {
     const timeAgo = calculateTimeAgo(video.others?.posted_date);
-
     const div = document.createElement("div");
     div.innerHTML = `
     <div class="card w-full bg-base-100 shadow-xl">
           <figure class="relative">
             <img class="w-full h-44" src=${video.thumbnail} alt="videos" />
             <div class="badge badge-neutral absolute font-semibold bottom-1 right-2">${timeAgo}</div>
+  
           </figure>
           <div>
             <div class="card-body flex justify-between">
@@ -87,10 +102,6 @@ function calculateTimeAgo(postDateInSecond) {
   const postTime = parseInt(postDateInSecond);
   const hoursAgo = Math.floor(postTime / (60 * 60));
   const minutesAgo = Math.floor((postTime % 3600) / 60);
-  // console.log(postDateInSecond);
-  // console.log(postTime);
-  console.log(hoursAgo);
-  console.log(minutesAgo);
 
   const hoursText =
     hoursAgo > 0 ? `${hoursAgo} ${hoursAgo === 1 ? "hour" : "hours"}` : "";
@@ -109,4 +120,9 @@ function calculateTimeAgo(postDateInSecond) {
     return "";
   }
 }
+
+// const sortByView = () => {
+//   displayVideos("uuuuuu");
+// };
+
 // console.log(calculateTimeAgo());
